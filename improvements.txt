@@ -1,0 +1,38 @@
+ongoing issues:
+
+-ok the tail of the six should point right and upwards
+-the "desmos text" icon after popping down the window should be shifted leftward 
+
+
+future features (DO NOT implement yet):
+-should we add a decimal limit for how precise the translation offset can be?
+-make the text box editable
+-need to click on the finctions in the desmos editor
+-allow users to resize letters vertically and horizontally, with those two dimensions being individual (rather than simply scaling)
+-users should be able to create multiple text boxes
+-implement newline: shift newline should create a newline in that same textbox, otherwise it "enters" your text; our window closes and you get a textbox you can drag around
+-comment what letter each equation is a part of, or otherwise group them
+-cover periods, commas, and other special characters
+
+resolved:
+-when I hit the clear button, the text should delete from the UI as well as from desmos. 
+-there is a little xyz that autopopulates in the lower left quadrant. Delete it.
+-There should be a small button on the window to x out of it (maybe on the upper right corner). We can debate whether it should close the popup entirely or simply collapse the window down into an icon somewhere on the screen.
+-when I type text in, it should auto-render instead of waiting for the render button. There shouldn't be a render button, because it should render automatically.
+-every letter should be sort of "squished down". They are too tall and skinny right now. 
+-lowercase l should not have a bottom
+-lowercase s should be two SIDEWAYS curves together. Basically, you're right that it's two circles stacked, but the top circle should exclude the lower right quadrant and the bottom should exclude the upper left.
+-lowercase f needs to have the top curve adjusted. Right now we see only an arc of 90 degrees, when we should have a 180 degree curve.
+-lwoercase e needs its line moved up because right now the line doesn't meet the top of the lowercase e cap
+-The lowercase m character is too close to the subsequent character. It is still readable, but if possible, please shift it left very slightly.
+-lowercase a (and all other round letters, including b, c, d,g, o, p,q) should be rounder (right now it still needs some of that vertical "squishing")
+-The curves at the bottom of the lowercase g and j should be the same size and start from the same height.
+-for lowercase letters b,d,p, and q, please make sure the arc ends when it comes into contact with the vertical line.
+-there is too much space on the left side of lowercase s. Shift it leftwards .2 units for now. it is also too small.
+-number 3 should have curves that extend farhter left, i.e. the top portion of the upper curve should wrap left and downwards, and the bottom portion of the lower curve should wrap left and upwards
+-the two circles in number 8 must be tangent to one another
+-the top tail of number 6 and the bottom tail of number 9 must be tangent to the circle
+-Uppercase G needs its curve to continue in the bottom right quadrant and come up to meet its line
+-Uppercase U is floating right now, it should touch the X axis when there are no translations.
+-The bottom arc for number five should just have part of the left side chopped off. the vertical line should then extend down to meet the upper part of that arc.
+-Uppercase S should be shifted right slightly. Its placement was good before.

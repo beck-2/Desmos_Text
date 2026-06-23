@@ -74,7 +74,8 @@
     ],
 
     'G': [
-      { latex: '(__X__ + __S__ * (0.3 + 0.28 * \\cos(\\pi / 3 + 4 * \\pi / 3 * t)), __Y__ + __S__ * (1 + \\sin(\\pi / 3 + 4 * \\pi / 3 * t)))', tMin: '0', tMax: '1' },
+      // Arc from upper-right (60°) CCW 300° to right side (0°=360°) where bar starts
+      { latex: '(__X__ + __S__ * (0.30 + 0.28 * \\cos(\\pi / 3 + 5 * \\pi / 3 * t)), __Y__ + __S__ * (1 + 0.95 * \\sin(\\pi / 3 + 5 * \\pi / 3 * t)))', tMin: '0', tMax: '1' },
       { latex: '(__X__ + __S__ * (0.58 - 0.28 * t), __Y__ + __S__ * 1)', tMin: '0', tMax: '1' },
     ],
 
@@ -140,8 +141,10 @@
     ],
 
     'S': [
-      { latex: '(__X__ + __S__ * (0.3 + 0.22 * \\cos(-\\pi / 6 + 4 * \\pi / 3 * t)), __Y__ + __S__ * (1.5 + 0.4 * \\sin(-\\pi / 6 + 4 * \\pi / 3 * t)))', tMin: '0', tMax: '1' },
-      { latex: '(__X__ + __S__ * (0.3 + 0.22 * \\cos(5 * \\pi / 6 + 4 * \\pi / 3 * t)), __Y__ + __S__ * (0.5 + 0.4 * \\sin(5 * \\pi / 6 + 4 * \\pi / 3 * t)))', tMin: '0', tMax: '1' },
+      // Top arc: 270° CCW from 0° (right), excludes lower-right quadrant
+      { latex: '(__X__ + __S__ * (0.25 + 0.24 * \\cos(3 * \\pi / 2 * t)), __Y__ + __S__ * (1.5 + 0.50 * \\sin(3 * \\pi / 2 * t)))', tMin: '0', tMax: '1' },
+      // Bottom arc: 270° CCW from π (left), excludes upper-left quadrant
+      { latex: '(__X__ + __S__ * (0.25 + 0.24 * \\cos(\\pi + 3 * \\pi / 2 * t)), __Y__ + __S__ * (0.5 + 0.50 * \\sin(\\pi + 3 * \\pi / 2 * t)))', tMin: '0', tMax: '1' },
     ],
 
     'T': [
@@ -150,9 +153,9 @@
     ],
 
     'U': [
-      { latex: '(__X__ + __S__ * 0.05, __Y__ + __S__ * (2 - 1.6 * t))', tMin: '0', tMax: '1' },
-      { latex: '(__X__ + __S__ * (0.3 + 0.25 * \\cos(\\pi + \\pi * t)), __Y__ + __S__ * (0.4 + 0.25 * \\sin(\\pi + \\pi * t)))', tMin: '0', tMax: '1' },
-      { latex: '(__X__ + __S__ * 0.55, __Y__ + __S__ * (0.4 + 1.6 * t))', tMin: '0', tMax: '1' },
+      { latex: '(__X__ + __S__ * 0.05, __Y__ + __S__ * (2 - 1.75 * t))', tMin: '0', tMax: '1' },
+      { latex: '(__X__ + __S__ * (0.3 + 0.25 * \\cos(\\pi + \\pi * t)), __Y__ + __S__ * (0.25 + 0.25 * \\sin(\\pi + \\pi * t)))', tMin: '0', tMax: '1' },
+      { latex: '(__X__ + __S__ * 0.55, __Y__ + __S__ * (0.25 + 1.75 * t))', tMin: '0', tMax: '1' },
     ],
 
     'V': [
@@ -188,8 +191,8 @@
     // x-height ≈ 1.35; ascenders reach 2.0; descenders reach −0.5
 
     'a': [
-      { latex: '(__X__ + __S__ * (0.22 + 0.18 * \\cos(2 * \\pi * t)), __Y__ + __S__ * (0.7 + 0.65 * \\sin(2 * \\pi * t)))', tMin: '0', tMax: '1' },
-      { latex: '(__X__ + __S__ * 0.4, __Y__ + __S__ * 1.35 * t)', tMin: '0', tMax: '1' },
+      { latex: '(__X__ + __S__ * (0.22 + 0.20 * \\cos(2 * \\pi * t)), __Y__ + __S__ * (0.70 + 0.65 * \\sin(2 * \\pi * t)))', tMin: '0', tMax: '1' },
+      { latex: '(__X__ + __S__ * 0.42, __Y__ + __S__ * 1.35 * t)', tMin: '0', tMax: '1' },
     ],
 
     'b': [
@@ -198,7 +201,7 @@
     ],
 
     'c': [
-      { latex: '(__X__ + __S__ * (0.3 + 0.22 * \\cos(\\pi / 4 + 3 * \\pi / 2 * t)), __Y__ + __S__ * (0.7 + 0.65 * \\sin(\\pi / 4 + 3 * \\pi / 2 * t)))', tMin: '0', tMax: '1' },
+      { latex: '(__X__ + __S__ * (0.30 + 0.26 * \\cos(\\pi / 4 + 3 * \\pi / 2 * t)), __Y__ + __S__ * (0.70 + 0.65 * \\sin(\\pi / 4 + 3 * \\pi / 2 * t)))', tMin: '0', tMax: '1' },
     ],
 
     'd': [
@@ -207,20 +210,24 @@
     ],
 
     'e': [
-      { latex: '(__X__ + __S__ * (0.3 + 0.22 * \\cos(\\pi / 6 + 5 * \\pi / 3 * t)), __Y__ + __S__ * (0.7 + 0.65 * \\sin(\\pi / 6 + 5 * \\pi / 3 * t)))', tMin: '0', tMax: '1' },
-      { latex: '(__X__ + __S__ * (0.08 + 0.44 * t), __Y__ + __S__ * 0.7)', tMin: '0', tMax: '1' },
+      { latex: '(__X__ + __S__ * (0.30 + 0.26 * \\cos(\\pi / 6 + 5 * \\pi / 3 * t)), __Y__ + __S__ * (0.70 + 0.65 * \\sin(\\pi / 6 + 5 * \\pi / 3 * t)))', tMin: '0', tMax: '1' },
+      // Crossbar at the height of the arc's upper opening (cy + ry*sin(30°) = 0.70 + 0.325 = 1.025)
+      { latex: '(__X__ + __S__ * (0.075 + 0.45 * t), __Y__ + __S__ * 1.025)', tMin: '0', tMax: '1' },
     ],
 
     'f': [
-      { latex: '(__X__ + __S__ * 0.25, __Y__ + __S__ * 1.8 * t)', tMin: '0', tMax: '1' },
-      { latex: '(__X__ + __S__ * (0.35 + 0.1 * \\cos(\\pi - \\pi / 2 * t)), __Y__ + __S__ * (1.9 + 0.15 * \\sin(\\pi - \\pi / 2 * t)))', tMin: '0', tMax: '1' },
+      { latex: '(__X__ + __S__ * 0.25, __Y__ + __S__ * 1.7 * t)', tMin: '0', tMax: '1' },
+      // 180° arc: left end of hook → top → right end
+      { latex: '(__X__ + __S__ * (0.35 + 0.1 * \\cos(\\pi - \\pi * t)), __Y__ + __S__ * (1.7 + 0.2 * \\sin(\\pi - \\pi * t)))', tMin: '0', tMax: '1' },
       { latex: '(__X__ + __S__ * (0.1 + 0.3 * t), __Y__ + __S__ * 0.85)', tMin: '0', tMax: '1' },
     ],
 
     'g': [
-      { latex: '(__X__ + __S__ * (0.28 + 0.2 * \\cos(2 * \\pi * t)), __Y__ + __S__ * (0.7 + 0.6 * \\sin(2 * \\pi * t)))', tMin: '0', tMax: '1' },
-      { latex: '(__X__ + __S__ * 0.48, __Y__ + __S__ * (1.3 - 1.7 * t))', tMin: '0', tMax: '1' },
-      { latex: '(__X__ + __S__ * (0.48 - 0.3 * t), __Y__ - __S__ * 0.4)', tMin: '0', tMax: '1' },
+      { latex: '(__X__ + __S__ * (0.28 + 0.24 * \\cos(2 * \\pi * t)), __Y__ + __S__ * (0.70 + 0.60 * \\sin(2 * \\pi * t)))', tMin: '0', tMax: '1' },
+      // Vertical from right side of circle (x=0.52, y=0.70) down to descender
+      { latex: '(__X__ + __S__ * 0.52, __Y__ + __S__ * (0.70 - 1.10 * t))', tMin: '0', tMax: '1' },
+      // CW half-circle hook curving down then left from bottom of vertical
+      { latex: '(__X__ + __S__ * (0.32 + 0.20 * \\cos(-\\pi * t)), __Y__ + __S__ * (-0.4 + 0.20 * \\sin(-\\pi * t)))', tMin: '0', tMax: '1' },
     ],
 
     'h': [
@@ -235,8 +242,9 @@
     ],
 
     'j': [
-      { latex: '(__X__ + __S__ * 0.35, __Y__ + __S__ * (1.35 - 1.7 * t))', tMin: '0', tMax: '1' },
-      { latex: '(__X__ + __S__ * (0.35 - 0.25 * t), __Y__ - __S__ * 0.35)', tMin: '0', tMax: '1' },
+      { latex: '(__X__ + __S__ * 0.35, __Y__ + __S__ * (1.35 - 1.75 * t))', tMin: '0', tMax: '1' },
+      // CW half-circle hook — same r=0.20 and y=-0.40 as g hook
+      { latex: '(__X__ + __S__ * (0.15 + 0.20 * \\cos(-\\pi * t)), __Y__ + __S__ * (-0.40 + 0.20 * \\sin(-\\pi * t)))', tMin: '0', tMax: '1' },
       { latex: '(__X__ + __S__ * (0.35 + 0.05 * \\cos(2 * \\pi * t)), __Y__ + __S__ * (1.6 + 0.05 * \\sin(2 * \\pi * t)))', tMin: '0', tMax: '1' },
     ],
 
@@ -248,15 +256,15 @@
 
     'l': [
       { latex: '(__X__ + __S__ * 0.25, __Y__ + __S__ * 2 * t)', tMin: '0', tMax: '1' },
-      { latex: '(__X__ + __S__ * (0.15 + 0.2 * t), __Y__)', tMin: '0', tMax: '1' },
     ],
 
     'm': [
-      { latex: '(__X__ + __S__ * 0.05, __Y__ + __S__ * 1.35 * t)', tMin: '0', tMax: '1' },
-      { latex: '(__X__ + __S__ * (0.2 + 0.15 * \\cos(\\pi - \\pi * t)), __Y__ + __S__ * (0.75 + 0.6 * \\sin(\\pi - \\pi * t)))', tMin: '0', tMax: '1' },
-      { latex: '(__X__ + __S__ * 0.35, __Y__ + __S__ * 0.75 * t)', tMin: '0', tMax: '1' },
-      { latex: '(__X__ + __S__ * (0.5 + 0.15 * \\cos(\\pi - \\pi * t)), __Y__ + __S__ * (0.75 + 0.6 * \\sin(\\pi - \\pi * t)))', tMin: '0', tMax: '1' },
-      { latex: '(__X__ + __S__ * 0.65, __Y__ + __S__ * 0.75 * t)', tMin: '0', tMax: '1' },
+      // Shifted left by 0.05 vs original to reduce gap with next character
+      { latex: '(__X__ + __S__ * 0.0, __Y__ + __S__ * 1.35 * t)', tMin: '0', tMax: '1' },
+      { latex: '(__X__ + __S__ * (0.15 + 0.15 * \\cos(\\pi - \\pi * t)), __Y__ + __S__ * (0.75 + 0.6 * \\sin(\\pi - \\pi * t)))', tMin: '0', tMax: '1' },
+      { latex: '(__X__ + __S__ * 0.3, __Y__ + __S__ * 0.75 * t)', tMin: '0', tMax: '1' },
+      { latex: '(__X__ + __S__ * (0.45 + 0.15 * \\cos(\\pi - \\pi * t)), __Y__ + __S__ * (0.75 + 0.6 * \\sin(\\pi - \\pi * t)))', tMin: '0', tMax: '1' },
+      { latex: '(__X__ + __S__ * 0.6, __Y__ + __S__ * 0.75 * t)', tMin: '0', tMax: '1' },
     ],
 
     'n': [
@@ -266,7 +274,7 @@
     ],
 
     'o': [
-      { latex: '(__X__ + __S__ * (0.28 + 0.22 * \\cos(2 * \\pi * t)), __Y__ + __S__ * (0.68 + 0.62 * \\sin(2 * \\pi * t)))', tMin: '0', tMax: '1' },
+      { latex: '(__X__ + __S__ * (0.28 + 0.26 * \\cos(2 * \\pi * t)), __Y__ + __S__ * (0.68 + 0.62 * \\sin(2 * \\pi * t)))', tMin: '0', tMax: '1' },
     ],
 
     'p': [
@@ -285,8 +293,10 @@
     ],
 
     's': [
-      { latex: '(__X__ + __S__ * (0.28 + 0.18 * \\cos(-\\pi / 6 + 4 * \\pi / 3 * t)), __Y__ + __S__ * (1.0 + 0.3 * \\sin(-\\pi / 6 + 4 * \\pi / 3 * t)))', tMin: '0', tMax: '1' },
-      { latex: '(__X__ + __S__ * (0.28 + 0.18 * \\cos(5 * \\pi / 6 + 4 * \\pi / 3 * t)), __Y__ + __S__ * (0.4 + 0.3 * \\sin(5 * \\pi / 6 + 4 * \\pi / 3 * t)))', tMin: '0', tMax: '1' },
+      // Top arc: 270° CCW from 0°, excludes lower-right quadrant
+      { latex: '(__X__ + __S__ * (0.08 + 0.26 * \\cos(3 * \\pi / 2 * t)), __Y__ + __S__ * (0.93 + 0.30 * \\sin(3 * \\pi / 2 * t)))', tMin: '0', tMax: '1' },
+      // Bottom arc: 270° CCW from π, excludes upper-left quadrant
+      { latex: '(__X__ + __S__ * (0.08 + 0.26 * \\cos(\\pi + 3 * \\pi / 2 * t)), __Y__ + __S__ * (0.33 + 0.30 * \\sin(\\pi + 3 * \\pi / 2 * t)))', tMin: '0', tMax: '1' },
     ],
 
     't': [
@@ -347,8 +357,10 @@
     ],
 
     '3': [
-      { latex: '(__X__ + __S__ * (0.3 + 0.25 * \\cos(\\pi / 2 - \\pi * t)), __Y__ + __S__ * (1.5 + 0.5 * \\sin(\\pi / 2 - \\pi * t)))', tMin: '0', tMax: '1' },
-      { latex: '(__X__ + __S__ * (0.3 + 0.25 * \\cos(\\pi / 2 - \\pi * t)), __Y__ + __S__ * (0.5 + 0.5 * \\sin(\\pi / 2 - \\pi * t)))', tMin: '0', tMax: '1' },
+      // Upper arc: from upper-left (120°) CW 210° to bottom-center, connecting to lower arc
+      { latex: '(__X__ + __S__ * (0.3 + 0.25 * \\cos(2 * \\pi / 3 - 7 * \\pi / 6 * t)), __Y__ + __S__ * (1.5 + 0.5 * \\sin(2 * \\pi / 3 - 7 * \\pi / 6 * t)))', tMin: '0', tMax: '1' },
+      // Lower arc: from bottom-center CW 210° to lower-left
+      { latex: '(__X__ + __S__ * (0.3 + 0.25 * \\cos(\\pi / 2 - 7 * \\pi / 6 * t)), __Y__ + __S__ * (0.5 + 0.5 * \\sin(\\pi / 2 - 7 * \\pi / 6 * t)))', tMin: '0', tMax: '1' },
     ],
 
     '4': [
@@ -359,13 +371,18 @@
 
     '5': [
       { latex: '(__X__ + __S__ * (0.55 - 0.48 * t), __Y__ + __S__ * 2)', tMin: '0', tMax: '1' },
-      { latex: '(__X__ + __S__ * 0.07, __Y__ + __S__ * (2 - t))', tMin: '0', tMax: '1' },
-      { latex: '(__X__ + __S__ * (0.3 + 0.23 * \\cos(\\pi - 3 * \\pi / 2 * t)), __Y__ + __S__ * (0.65 + 0.65 * \\sin(\\pi - 3 * \\pi / 2 * t)))', tMin: '0', tMax: '1' },
+      // Vertical down to the shelf height (top of arc)
+      { latex: '(__X__ + __S__ * 0.07, __Y__ + __S__ * (2 - 0.70 * t))', tMin: '0', tMax: '1' },
+      // Horizontal shelf connecting vertical to top of arc
+      { latex: '(__X__ + __S__ * (0.07 + 0.23 * t), __Y__ + __S__ * 1.30)', tMin: '0', tMax: '1' },
+      // Arc from top (90°) CW 270° to left (180°); top at (0.30, 1.30), left at (0.07, 0.65)
+      { latex: '(__X__ + __S__ * (0.30 + 0.23 * \\cos(\\pi / 2 - 3 * \\pi / 2 * t)), __Y__ + __S__ * (0.65 + 0.65 * \\sin(\\pi / 2 - 3 * \\pi / 2 * t)))', tMin: '0', tMax: '1' },
     ],
 
     '6': [
       { latex: '(__X__ + __S__ * (0.3 + 0.23 * \\cos(2 * \\pi * t)), __Y__ + __S__ * (0.7 + 0.65 * \\sin(2 * \\pi * t)))', tMin: '0', tMax: '1' },
-      { latex: '(__X__ + __S__ * (0.3 + 0.2 * t), __Y__ + __S__ * (1.35 + 0.65 * t))', tMin: '0', tMax: '1' },
+      // CW arc: center (0.45,1.15) below the arc gives concave-down shape going right and up
+      { latex: '(__X__ + __S__ * (0.45 + 0.25 * \\cos(2.21 - 1.1 * t)), __Y__ + __S__ * (1.15 + 0.25 * \\sin(2.21 - 1.1 * t)))', tMin: '0', tMax: '1' },
     ],
 
     '7': [
@@ -374,13 +391,15 @@
     ],
 
     '8': [
-      { latex: '(__X__ + __S__ * (0.3 + 0.23 * \\cos(2 * \\pi * t)), __Y__ + __S__ * (1.5 + 0.48 * \\sin(2 * \\pi * t)))', tMin: '0', tMax: '1' },
-      { latex: '(__X__ + __S__ * (0.3 + 0.25 * \\cos(2 * \\pi * t)), __Y__ + __S__ * (0.55 + 0.52 * \\sin(2 * \\pi * t)))', tMin: '0', tMax: '1' },
+      // Upper circle; tangent to lower circle at y=1.02 (cy_upper - ry_upper = cy_lower + ry_lower)
+      { latex: '(__X__ + __S__ * (0.3 + 0.23 * \\cos(2 * \\pi * t)), __Y__ + __S__ * (1.50 + 0.48 * \\sin(2 * \\pi * t)))', tMin: '0', tMax: '1' },
+      { latex: '(__X__ + __S__ * (0.3 + 0.25 * \\cos(2 * \\pi * t)), __Y__ + __S__ * (0.50 + 0.52 * \\sin(2 * \\pi * t)))', tMin: '0', tMax: '1' },
     ],
 
     '9': [
       { latex: '(__X__ + __S__ * (0.3 + 0.23 * \\cos(2 * \\pi * t)), __Y__ + __S__ * (1.35 + 0.62 * \\sin(2 * \\pi * t)))', tMin: '0', tMax: '1' },
-      { latex: '(__X__ + __S__ * (0.53 - 0.18 * t), __Y__ + __S__ * (1.35 - 1.35 * t))', tMin: '0', tMax: '1' },
+      // Vertical tail from the rightmost point of the circle (tangent = vertical there)
+      { latex: '(__X__ + __S__ * 0.53, __Y__ + __S__ * (1.35 - 1.35 * t))', tMin: '0', tMax: '1' },
     ],
 
   };
@@ -433,21 +452,23 @@
   // SECTION: ID MANAGEMENT
   // ---------------------------------------------------------------------------
 
-  let _currentIds = [];
-
+  // Scans Calc state for any txt- expressions and removes them.
+  // Using getState() instead of an in-memory list means stale expressions
+  // from a previous page session are also caught.
   function clearRendered(Calc) {
-    if (_currentIds.length > 0) {
-      Calc.removeExpressions(_currentIds.map(function (id) { return { id: id }; }));
-      _currentIds = [];
+    var stale = Calc.getState().expressions.list
+      .filter(function (e) { return e.id && e.id.startsWith('txt-'); })
+      .map(function (e) { return { id: e.id }; });
+    if (stale.length > 0) {
+      Calc.removeExpressions(stale);
     }
   }
 
   function renderText(Calc, text, x, y, scale) {
     clearRendered(Calc);
-    const exprs = buildExpressions(text, x, y, scale);
+    var exprs = buildExpressions(text, x, y, scale);
     if (exprs.length > 0) {
       Calc.setExpressions(exprs);
-      _currentIds = exprs.map(function (e) { return e.id; });
     }
   }
 
@@ -456,9 +477,8 @@
   // ---------------------------------------------------------------------------
 
   function buildPanel() {
-    const panel = document.createElement('div');
+    var panel = document.createElement('div');
     panel.id = 'dt-panel';
-    // Use !important on layout-critical properties so Desmos CSS can't override them.
     panel.setAttribute('style', [
       'position:fixed !important',
       'top:16px !important',
@@ -466,38 +486,50 @@
       'z-index:2147483647 !important',
       'display:flex !important',
       'flex-direction:column !important',
-      'gap:8px',
       'background:#1e1e2e',
       'color:#cdd6f4',
       'border:1px solid #45475a',
       'border-radius:8px',
-      'padding:12px 14px',
       'font-family:monospace',
       'font-size:13px',
       'min-width:220px',
       'box-shadow:0 4px 16px rgba(0,0,0,0.5)',
     ].join(';'));
 
+    var closeBtn = [
+      'background:none',
+      'border:none',
+      'color:#cdd6f4',
+      'font-size:14px',
+      'cursor:pointer',
+      'padding:0',
+      'line-height:1',
+    ].join(';');
+
     panel.innerHTML = [
-      '<div style="font-weight:bold;font-size:14px;margin-bottom:2px;">Desmos Text</div>',
-      '<label style="display:flex;flex-direction:column;gap:2px;">',
-        'Text',
-        '<input id="dt-text" type="text" placeholder="Hello" style="' + inputStyle() + '" />',
-      '</label>',
-      '<div style="display:flex;gap:6px;">',
-        '<label style="flex:1;display:flex;flex-direction:column;gap:2px;">X',
-          '<input id="dt-x" type="number" value="0" step="0.1" style="' + inputStyle() + '" />',
-        '</label>',
-        '<label style="flex:1;display:flex;flex-direction:column;gap:2px;">Y',
-          '<input id="dt-y" type="number" value="0" step="0.1" style="' + inputStyle() + '" />',
-        '</label>',
+      // Header row — always visible; click when collapsed to expand
+      '<div id="dt-header" style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;cursor:pointer;">',
+        '<span id="dt-title" style="font-weight:bold;font-size:14px;">Desmos Text</span>',
+        '<button id="dt-collapse" style="' + closeBtn + '" title="Collapse">✕</button>',
       '</div>',
-      '<label style="display:flex;flex-direction:column;gap:2px;">',
-        'Scale',
-        '<input id="dt-scale" type="number" value="1" step="0.1" min="0.01" style="' + inputStyle() + '" />',
-      '</label>',
-      '<div style="display:flex;gap:6px;margin-top:2px;">',
-        '<button id="dt-render" style="' + btnStyle('#89b4fa') + '">Render</button>',
+      // Body — hidden when collapsed
+      '<div id="dt-body" style="display:flex;flex-direction:column;gap:8px;padding:0 14px 12px;">',
+        '<label style="display:flex;flex-direction:column;gap:2px;">',
+          'Text',
+          '<input id="dt-text" type="text" placeholder="Hello" style="' + inputStyle() + '" />',
+        '</label>',
+        '<div style="display:flex;gap:6px;">',
+          '<label style="flex:1;display:flex;flex-direction:column;gap:2px;">X',
+            '<input id="dt-x" type="number" value="0" step="0.1" style="' + inputStyle() + '" />',
+          '</label>',
+          '<label style="flex:1;display:flex;flex-direction:column;gap:2px;">Y',
+            '<input id="dt-y" type="number" value="0" step="0.1" style="' + inputStyle() + '" />',
+          '</label>',
+        '</div>',
+        '<label style="display:flex;flex-direction:column;gap:2px;">',
+          'Scale',
+          '<input id="dt-scale" type="number" value="1" step="0.1" min="0.01" style="' + inputStyle() + '" />',
+        '</label>',
         '<button id="dt-clear" style="' + btnStyle('#f38ba8') + '">Clear</button>',
       '</div>',
     ].join('');
@@ -521,7 +553,6 @@
 
   function btnStyle(color) {
     return [
-      'flex:1',
       'background:' + color,
       'color:#1e1e2e',
       'border:none',
@@ -531,6 +562,7 @@
       'font-size:13px',
       'font-weight:bold',
       'cursor:pointer',
+      'width:100%',
     ].join(';');
   }
 
@@ -544,23 +576,67 @@
   }
 
   function wirePanel(Calc) {
-    document.getElementById('dt-render').addEventListener('click', function () {
-      var v = getInputValues();
-      renderText(Calc, v.text, v.x, v.y, v.scale);
+    var body = document.getElementById('dt-body');
+    var collapseBtn = document.getElementById('dt-collapse');
+    var header = document.getElementById('dt-header');
+    var collapsed = false;
+
+    function toggleCollapse() {
+      collapsed = !collapsed;
+      var titleSpan = document.getElementById('dt-title');
+      body.style.display = collapsed ? 'none' : 'flex';
+      var panelEl = document.getElementById('dt-panel');
+      if (collapsed) {
+        titleSpan.textContent = 'Desmos Text▸';
+        collapseBtn.style.display = 'none';
+        header.style.padding = '6px 10px';
+        panelEl.style.minWidth = '0';
+        panelEl.style.width = 'auto';
+        panelEl.style.right = '120px';
+      } else {
+        titleSpan.textContent = 'Desmos Text';
+        collapseBtn.style.display = '';
+        collapseBtn.textContent = '✕';
+        header.style.padding = '10px 14px';
+        panelEl.style.minWidth = '220px';
+        panelEl.style.width = '';
+        panelEl.style.right = '16px';
+      }
+      collapseBtn.title = collapsed ? 'Expand' : 'Collapse';
+    }
+
+    collapseBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      toggleCollapse();
+    });
+
+    // Click the header to expand when collapsed
+    header.addEventListener('click', function () {
+      if (collapsed) toggleCollapse();
     });
 
     document.getElementById('dt-clear').addEventListener('click', function () {
       clearRendered(Calc);
+      document.getElementById('dt-text').value = '';
     });
 
-    // Live re-render when position/scale change, but only if text is already rendered
-    ['dt-x', 'dt-y', 'dt-scale'].forEach(function (id) {
-      document.getElementById(id).addEventListener('input', function () {
-        if (_currentIds.length > 0) {
-          var v = getInputValues();
+    // Auto-render on text input (debounced) and on position/scale changes
+    var _debounce = null;
+    function scheduleRender() {
+      clearTimeout(_debounce);
+      _debounce = setTimeout(function () {
+        var v = getInputValues();
+        if (v.text) {
           renderText(Calc, v.text, v.x, v.y, v.scale);
+        } else {
+          clearRendered(Calc);
         }
-      });
+      }, 150);
+    }
+
+    document.getElementById('dt-text').addEventListener('input', scheduleRender);
+    ['dt-x', 'dt-y', 'dt-scale'].forEach(function (id) {
+      document.getElementById(id).addEventListener('input', scheduleRender);
     });
   }
 
@@ -570,10 +646,13 @@
 
   function init() {
     if (document.getElementById('dt-panel')) return;
+    var Calc = unsafeWindow.Calc;
+    // Remove any txt- expressions left over from a previous session.
+    clearRendered(Calc);
     var panel = buildPanel();
     // Append to <html> so Desmos's body mutations can't remove it.
     document.documentElement.appendChild(panel);
-    wirePanel(unsafeWindow.Calc);
+    wirePanel(Calc);
     console.log('[DesmosText] panel injected');
   }
 
