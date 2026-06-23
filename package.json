@@ -1,0 +1,23 @@
+{
+  "name": "desmos_text",
+  "version": "1.0.0",
+  "description": "Write, move, and rescale text directly in the Desmos graphing calculator web app",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beck-2/Desmos_Text.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beck-2/Desmos_Text/issues"
+  },
+  "homepage": "https://github.com/beck-2/Desmos_Text#readme",
+  "devDependencies": {
+    "jest": "^30.4.2"
+  }
+}
