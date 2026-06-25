@@ -1,7 +1,14 @@
 // ABOUTME: Unit tests for the pure render logic in src/render.js
 // ABOUTME: Tests token substitution, expression building, and ID management
 
-const { substituteTokens, buildExpressions, clearExpressionIds, CHAR_WIDTH } = require('../src/render');
+const {
+  substituteTokens,
+  buildExpressions,
+  buildDraggableExpressions,
+  clearExpressionIds,
+  CHAR_WIDTH,
+  LINE_HEIGHT,
+} = require('../src/render');
 
 // Each stroke is { latex, tMin, tMax }. tMin/tMax may contain __S__ tokens.
 const SAMPLE_GLYPHS = {
@@ -130,6 +137,79 @@ describe('buildExpressions', () => {
     expect(exprs).toHaveLength(3);
     // char index 1 because '!' was index 0 (skipped)
     expect(exprs[0].id).toBe('txt-1-s0');
+  });
+
+  test('newline splits text into separate lines', () => {
+    const exprs = buildExpressions('O\nO', 0, 0, 1, SAMPLE_GLYPHS);
+    expect(exprs).toHaveLength(2);
+  });
+
+  test('second line is offset downward by LINE_HEIGHT * scale', () => {
+    const exprs = buildExpressions('O\nO', 0, 0, 1, SAMPLE_GLYPHS);
+    // First O uses y=0, second uses y = 0 - LINE_HEIGHT*1 = -LINE_HEIGHT
+    expect(exprs[0].latex).not.toContain(String(-LINE_HEIGHT));
+    expect(exprs[1].latex).toContain(String(-LINE_HEIGHT));
+  });
+
+  test('char IDs are unique across lines', () => {
+    const exprs = buildExpressions('A\nA', 0, 0, 1, SAMPLE_GLYPHS);
+    const ids = exprs.map(e => e.id);
+    expect(new Set(ids).size).toBe(ids.length);
+  });
+
+  test('multi-line scale applies to both line offset and per-char scale', () => {
+    const exprs = buildExpressions('O\nO', 0, 0, 2, SAMPLE_GLYPHS);
+    const expectedY = -(LINE_HEIGHT * 2);
+    expect(exprs[1].latex).toContain(String(expectedY));
+  });
+});
+
+describe('buildDraggableExpressions', () => {
+  test('replaces __X__ with xVar', () => {
+    const exprs = buildDraggableExpressions('O', 1, SAMPLE_GLYPHS, 'x_{dt}', 'y_{dt}');
+    expect(exprs[0].latex).toContain('x_{dt}');
+    expect(exprs[0].latex).not.toContain('__X__');
+  });
+
+  test('replaces __Y__ with yVar', () => {
+    const exprs = buildDraggableExpressions('O', 1, SAMPLE_GLYPHS, 'x_{dt}', 'y_{dt}');
+    expect(exprs[0].latex).toContain('y_{dt}');
+    expect(exprs[0].latex).not.toContain('__Y__');
+  });
+
+  test('replaces __S__ with literal scale', () => {
+    const exprs = buildDraggableExpressions('O', 2, SAMPLE_GLYPHS, 'x_{dt}', 'y_{dt}');
+    expect(exprs[0].latex).toContain('2');
+    expect(exprs[0].latex).not.toContain('__S__');
+  });
+
+  test('first char uses bare xVar (no offset)', () => {
+    const exprs = buildDraggableExpressions('O', 1, SAMPLE_GLYPHS, 'x_{dt}', 'y_{dt}');
+    // No offset added for first char
+    expect(exprs[0].latex).toContain('x_{dt} +');
+    expect(exprs[0].latex).not.toContain('x_{dt}+');
+  });
+
+  test('second char appends cursor offset to xVar', () => {
+    const exprs = buildDraggableExpressions('OO', 1, SAMPLE_GLYPHS, 'x_{dt}', 'y_{dt}');
+    expect(exprs[1].latex).toContain('x_{dt}+' + CHAR_WIDTH);
+  });
+
+  test('second line uses negative yVar offset', () => {
+    const exprs = buildDraggableExpressions('O\nO', 1, SAMPLE_GLYPHS, 'x_{dt}', 'y_{dt}');
+    expect(exprs[1].latex).toContain('y_{dt}-' + LINE_HEIGHT);
+  });
+
+  test('expression IDs match buildExpressions format', () => {
+    const exprs = buildDraggableExpressions('OA', 1, SAMPLE_GLYPHS, 'x_{dt}', 'y_{dt}');
+    expect(exprs[0].id).toBe('txt-0-s0');
+    expect(exprs[1].id).toBe('txt-1-s0');
+  });
+
+  test('produces no literal x/y numbers, only variable references', () => {
+    const exprs = buildDraggableExpressions('O', 1, SAMPLE_GLYPHS, 'x_{dt}', 'y_{dt}');
+    // The literal x=0, y=0 should NOT appear; only the variable names
+    expect(exprs[0].latex).not.toMatch(/\(0 \+/);
   });
 });
 

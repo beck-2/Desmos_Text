@@ -1,18 +1,23 @@
-ongoing issues:
+ongoing issues (please fix!):
+-The bounding box shouldn't disappear immediately after we finish dragging- if we can, it should only disappear when you click anywhere else (not in the bounding box)
+-the bounding box should appear when we double click the text REGARDLESS of whether we have pressed enter
 
--ok the tail of the six should point right and upwards
--the "desmos text" icon after popping down the window should be shifted leftward 
+
+
+new features (please implement!):
 
 
 future features (DO NOT implement yet):
+-fix the 6
+-Add in the following special characters: "!,;.-?()':@#$%^&*+=<>
 -should we add a decimal limit for how precise the translation offset can be?
--make the text box editable
+
 -need to click on the finctions in the desmos editor
 -allow users to resize letters vertically and horizontally, with those two dimensions being individual (rather than simply scaling)
 -users should be able to create multiple text boxes
--implement newline: shift newline should create a newline in that same textbox, otherwise it "enters" your text; our window closes and you get a textbox you can drag around
+
 -comment what letter each equation is a part of, or otherwise group them
--cover periods, commas, and other special characters
+
 
 resolved:
 -when I hit the clear button, the text should delete from the UI as well as from desmos. 
@@ -36,3 +41,10 @@ resolved:
 -Uppercase U is floating right now, it should touch the X axis when there are no translations.
 -The bottom arc for number five should just have part of the left side chopped off. the vertical line should then extend down to meet the upper part of that arc.
 -Uppercase S should be shifted right slightly. Its placement was good before.
+-make a box around the text that you can then click into to edit
+-implement newline: shift newline should create a newline in that same textbox, otherwise it "enters" your text; our window closes and you get a textbox you can drag around
+-the "desmos text" icon after popping down the window should be shifted leftward 
+-users should be able to double click into the box to edit. After dragging the box around, the bounding box should dissapear UNTIL we double click it, in which case the bounding box should reappear and we can drag it around again.
+-We should be able to drag the box from ANYWHERE in the box, not just that one red dot. Overall good implementation of the dragging; let's keep that behavior
+-We don't need to add the little "(Enter to drag, shift + enter for a newline)" text on our UI.
+-The light blue bounding box you introduced doesn't overlap cleanly on the text. It currently sits above it. In addition, it sometimes dissociates entirely from the text so I only drag the blue box instead of the text. Please fix both these issues.
