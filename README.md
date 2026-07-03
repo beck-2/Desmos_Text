@@ -1,3 +1,9 @@
+
+
+https://github.com/user-attachments/assets/1fe0c4d6-7741-4adc-bcfc-3493fef1fed2
+
+
+
 # Desmos_Text
 A simple script allowing you to write, move, and rescale text directly in the Desmos graphing calculator web app. The text is comprised of parametric equations, easily viewable and editable in the calculator itself. 
 
